@@ -1,0 +1,6 @@
+'use client';
+import {motion,useReducedMotion,useScroll,useSpring,useMotionValue} from 'motion/react';
+import {useRef} from 'react';
+export function Progress(){const {scrollYProgress}=useScroll();const scaleX=useSpring(scrollYProgress,{stiffness:100,damping:30});return <motion.div className="progress" style={{scaleX}}/>}
+export function Reveal({children,className=''}:{children:React.ReactNode,className?:string}){const reduced=useReducedMotion();return <motion.div className={className} initial={false} whileInView={reduced?{}:{opacity:1,y:0}} viewport={{once:true,amount:.1}} style={{}}>{children}</motion.div>}
+export function Tilt({children}:{children:React.ReactNode}){const reduced=useReducedMotion();const ref=useRef<HTMLDivElement>(null);const x=useMotionValue(0),y=useMotionValue(0);const rotateX=useSpring(x,{stiffness:170,damping:22}),rotateY=useSpring(y,{stiffness:170,damping:22});return <div style={{perspective:1000}}><motion.div ref={ref} style={{rotateX,rotateY}} className="tilt" onPointerMove={e=>{if(reduced||e.pointerType!=='mouse'||!ref.current)return;const r=ref.current.getBoundingClientRect();x.set(-(e.clientY-r.top-r.height/2)/r.height*10);y.set((e.clientX-r.left-r.width/2)/r.width*10)}} onPointerLeave={()=>{x.set(0);y.set(0)}}>{children}</motion.div></div>}
