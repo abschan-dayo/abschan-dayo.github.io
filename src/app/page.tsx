@@ -33,7 +33,7 @@ export default function Home(){
     <section className="service">
       <div className="service-image" aria-hidden="true"><img src={local(request.images[0].src)} alt=""/></div>
       <div className="service-copy">
-        <span className="eyebrow">03 — CREATE TOGETHER</span>
+        <span className="eyebrow">02 — CREATE TOGETHER</span>
         <h2>あなたの声も、<br/>UTAU音源に。</h2>
         <p>収録、発声のサポートから原音設定、周波数表の作成まで。<br/>UTAU音源制作全般をお手伝いします。</p>
         <Link className="button primary" href="/request/">原音設定の依頼について →</Link>
