@@ -43,7 +43,7 @@ export default function VoiceList(){
           const paragraphs=page.blocks.find(block=>block.id===blockIds[index])!.paragraphs;
           return <article id={'voice-'+['whisper-low','wild','normal','whisper','cute','soft','owner'][index]} className="voice-card">
             <div className="voice-image"><img src={local(page.images[index].src)} alt={name} loading="lazy"/><span>{index===6?'管':String(position).padStart(2,'0')}</span></div>
-            <div className="voice-body"><span className="eyebrow">{index===6?'管理音源':'ふっきんちゃん'}</span><h2>{index===6?name:`-${name}-`}</h2>{paragraphs.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<audio controls preload="none" aria-label={name+'の試聴'} src={local(audio[index].src)}/><div className="voice-links"><a className="button primary" href={page.links[index].href}>ダウンロード →</a></div></div>
+            <div className="voice-body"><span className="eyebrow">{index===6?'管理音源':'ふっきんちゃん'}</span><h2>{index===6?name:`-${name}-`}</h2>{paragraphs.map((paragraph,i)=><p key={i}>{paragraph}</p>)}{index!==6&&<audio controls preload="none" aria-label={name+'の試聴'} src={local(audio[index].src)}/>}<div className="voice-links"><a className="button primary" href={page.links[index].href}>ダウンロード →</a></div></div>
           </article>;
         }}/>
       </section>;
