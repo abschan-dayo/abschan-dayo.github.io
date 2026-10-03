@@ -199,6 +199,7 @@ nav,.eyebrow,.brand small,.hero-meta,.voice-body p,.prose p,.common-settings p,.
 @media(max-width:1100px){.hero-name-line{white-space:normal;display:block}}
 @media(max-width:600px){.hero-name-prefix,.hero-name-value,.hero-name-suffix{display:block}.hero-name-value{white-space:nowrap;font-size:clamp(18px,7vw,32px)}}
 @media(max-width:1000px){.hero-art .hero-append-anchor{left:5%;top:8%;width:31%}.hero-name-line{font-size:.9em}}
+@media(max-width:600px){.hero-art .hero-append-anchor{left:5%;top:25%;width:43%}.hero-art .hero-append-reel .obsidian-text-stream__viewport{height:110px!important}.hero-art .hero-append-reel .obsidian-text-stream>p{font-size:clamp(8px,2.2vw,12px)!important}}
 .service{border-top:1px solid rgba(181,216,235,.22);margin-top:72px}
 .service:before{content:'';position:absolute;left:55px;top:-2px;width:72px;height:3px;border-radius:99px;background:var(--warm-highlight)}
 .terms-content p{font-size:16px;font-weight:700;line-height:2.15}
