@@ -36,7 +36,7 @@ export default function VoiceList(){
       const isOwner=group.indices[0]===6;
       return <section className="voice-group" key={group.title} aria-label={group.title}>
         <h2 className="voice-group-title">{group.title}{!isOwner&&<small className="voice-drag-hint">-ドラッグして移動-</small>}</h2>
-        <DraggableMarquee draggable={!isOwner} items={visible.map(index=>({id:index,src:local(page.images[index].src)}))} speed={0} repeatCount={1} bounded throwMultiplier={2.2} throwFriction={0.94} maxThrowVelocity={45} className={'voice-marquee'+(isOwner?' voice-marquee-static':'')} trackClassName="voice-marquee-track" itemClassName="voice-marquee-item" label={group.title+'の音源。左右にドラッグ、または矢印キーで移動'} renderItem={item=>{
+        <DraggableMarquee draggable={!isOwner} items={visible.map(index=>({id:index,src:local(page.images[index].src)}))} speed={0} repeatCount={1} bounded throwMultiplier={4} throwFriction={0.98} maxThrowVelocity={80} className={'voice-marquee'+(isOwner?' voice-marquee-static':'')} trackClassName="voice-marquee-track" itemClassName="voice-marquee-item" label={group.title+'の音源。左右にドラッグ、または矢印キーで移動'} renderItem={item=>{
           const index=Number(item.id);
           const position=visible.indexOf(index)+1;
           const name=names[index];
