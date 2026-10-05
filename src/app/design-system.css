@@ -207,3 +207,5 @@ nav,.eyebrow,.brand small,.hero-meta,.voice-body p,.prose p,.common-settings p,.
 .progress{display:none!important}
 
 @media(max-width:600px){.hero-art .hero-append-anchor{display:none}}
+
+.credit-link{text-decoration:underline;text-underline-offset:3px;color:var(--accent)}
