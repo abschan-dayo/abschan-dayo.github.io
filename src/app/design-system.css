@@ -205,3 +205,5 @@ nav,.eyebrow,.brand small,.hero-meta,.voice-body p,.prose p,.common-settings p,.
 .terms-content p{font-size:16px;font-weight:700;line-height:2.15}
 .terms-content h2{font-size:42px;font-weight:800;letter-spacing:-.04em}
 .progress{display:none!important}
+
+@media(max-width:600px){.hero-art .hero-append-anchor{display:none}}

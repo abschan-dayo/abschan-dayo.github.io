@@ -36,18 +36,19 @@ export default function VoiceList(){
       const isOwner=group.indices[0]===6;
       return <section className="voice-group" key={group.title} aria-label={group.title}>
         <h2 className="voice-group-title">{group.title}{!isOwner&&<small className="voice-drag-hint">-ドラッグして移動-</small>}</h2>
-        <DraggableMarquee draggable={!isOwner} items={visible.map(index=>({id:index,src:local(page.images[index].src)}))} speed={0} repeatCount={1} bounded throwMultiplier={4} throwFriction={0.98} maxThrowVelocity={80} className={'voice-marquee'+(isOwner?' voice-marquee-static':'')} trackClassName="voice-marquee-track" itemClassName="voice-marquee-item" label={group.title+'の音源。左右にドラッグ、または矢印キーで移動'} renderItem={item=>{
+        <DraggableMarquee draggable={!isOwner} items={visible.map(index=>({id:index,src:local(page.images[index].src)}))} speed={0} repeatCount={1} bounded throwMultiplier={2} throwFriction={0.94} maxThrowVelocity={35} className={'voice-marquee'+(isOwner?' voice-marquee-static':'')} trackClassName="voice-marquee-track" itemClassName="voice-marquee-item" label={group.title+'の音源。左右にドラッグ、または矢印キーで移動'} renderItem={item=>{
           const index=Number(item.id);
           const position=visible.indexOf(index)+1;
           const name=names[index];
           const paragraphs=page.blocks.find(block=>block.id===blockIds[index])!.paragraphs;
           return <article id={'voice-'+['whisper-low','wild','normal','whisper','cute','soft','owner'][index]} className="voice-card">
             <div className="voice-image"><img src={local(page.images[index].src)} alt={name} loading="lazy"/><span>{index===6?'管':String(position).padStart(2,'0')}</span></div>
-            <div className="voice-body"><span className="eyebrow">{index===6?'管理音源':'ふっきんちゃん'}</span><h2>{index===6?name:`-${name}-`}</h2>{paragraphs.map((paragraph,i)=><p key={i}>{paragraph}</p>)}{index!==6&&<audio controls preload="none" aria-label={name+'の試聴'} src={local(audio[index].src)}/>}<div className="voice-links"><a className="button primary" href={page.links[index].href}>ダウンロード →</a></div></div>
+            <div className="voice-body"><span className="eyebrow">{index===6?'管理音源':'ふっきんちゃん'}</span><h2>{index===6?name:`-${name}-`}</h2>{paragraphs.map((paragraph,i)=>paragraph==='同梱立ち絵:Soro 様'?<p key={i}>同梱立ち絵:<a href="https://x.com/soro__" target="_blank" rel="noreferrer">Soro 様</a></p>:<p key={i}>{paragraph}</p>)}{index!==6&&<audio controls preload="none" aria-label={name+'の試聴'} src={local(audio[index].src)}/>}<div className="voice-links"><a className="button primary" href={page.links[index].href}>ダウンロード →</a></div></div>
           </article>;
         }}/>
       </section>;
     })}
   </>;
 }
+
 
